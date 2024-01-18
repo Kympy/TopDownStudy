@@ -11,7 +11,7 @@
 ATitleGameMode::ATitleGameMode()
 {
 	// 여기서 로드
-	const FString Path = UUtil::GetBlueprintPath(TEXT("/Script/UMGEditor.WidgetBlueprint'/Game/Blueprints/UI/Title/BP_UITitle.BP_UITitle'"));
+	const FString Path = UUtil::GetBlueprintPath(TEXT("/Script/UMGEditor.WidgetBlueprint'/Game/Blueprints/UI/Title/WBP_UITitle.WBP_UITitle'"));
 	static ConstructorHelpers::FClassFinder<UUITitle>UITitleFinder(*Path);
 	if (UITitleFinder.Succeeded())
 	{
