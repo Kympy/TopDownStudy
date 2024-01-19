@@ -6,6 +6,7 @@
 #include "UI/KYMUserWidgetBase.h"
 #include "UITitle.generated.h"
 
+class UTextColorButton;
 class UImage;
 /**
  * 
@@ -24,6 +25,15 @@ protected:
 private:
 	UPROPERTY(VisibleAnywhere, meta=(AllowPrivateAccess, BindWidget))
 	TObjectPtr<UImage> Background;
-
+	UPROPERTY()
 	TObjectPtr<UTexture2D> BackgroundImage;
+
+	UPROPERTY(VisibleAnywhere, meta=(AllowPrivateAccess="true", BindWidget))
+	TObjectPtr<UTextColorButton> PlayButton;
+
+	UFUNCTION()
+	void OnPlayButtonClicked();
+
+	UFUNCTION()
+	void OnPlayButtonReleased();
 };

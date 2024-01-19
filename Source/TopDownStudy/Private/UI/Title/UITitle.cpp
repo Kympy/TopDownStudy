@@ -4,6 +4,7 @@
 #include "UI/Title/UITitle.h"
 
 #include "Components/Image.h"
+#include "UI/Base/TextColorButton.h"
 
 UUITitle::UUITitle()
 {
@@ -24,4 +25,22 @@ void UUITitle::NativeConstruct()
 	{
 		Background->SetBrushFromTexture(BackgroundImage);
 	}
+	if (PlayButton)
+	{
+		PlayButton->OnClicked.AddDynamic(this, &UUITitle::OnPlayButtonClicked);
+		PlayButton->OnReleased.AddDynamic(this, &UUITitle::OnPlayButtonReleased);
+
+		PlayButton->SetIsEnabled(true);
+	}
+}
+
+void UUITitle::OnPlayButtonClicked()
+{
+	UE_LOG(LogTemp, Log, TEXT("Title UI : Play Button Clicked"));
+	PlayButton->SetIsEnabled(false);
+}
+
+void UUITitle::OnPlayButtonReleased()
+{
+	UE_LOG(LogTemp, Log, TEXT("Title UI : Play Button Released"));
 }

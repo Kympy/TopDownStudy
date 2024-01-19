@@ -5,6 +5,7 @@
 
 #include "Blueprint/UserWidget.h"
 #include "Kismet/GameplayStatics.h"
+#include "PlayerController/TitlePlayerController.h"
 #include "UI/Title/UITitle.h"
 #include "Util/Util.h"
 
@@ -17,6 +18,7 @@ ATitleGameMode::ATitleGameMode()
 	{
 		UITitleClass = UITitleFinder.Class;
 	}
+	PlayerControllerClass = ATitlePlayerController::StaticClass();
 }
 
 void ATitleGameMode::InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage)
@@ -36,10 +38,11 @@ void ATitleGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// 여기서 커서 보이게 -> InitGame 에서는 PC 가 초기화 이전임.
 	APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 	if (PC)
-		PC->bShowMouseCursor = true;
+	{
+			
+	}
 }
 
 
